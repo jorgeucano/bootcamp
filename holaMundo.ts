@@ -24,3 +24,25 @@ function getHola ():string{
 function getSomething(data:any):void{
   console.log(data);
 }
+
+// ES5
+function iteradores(data:Array<any>):void{
+  data.forEach(function(iterado){
+    console.log(iterado);
+  });
+}
+
+// a lo typescript
+function iteradores_ts(data:Array<any>):void{
+  data.forEach(
+    (iterado)=>
+      console.log(iterado);
+  );
+}
+
+function iteradores_ts2(data:Array<any>):void{
+  data.forEach(
+    (iterado)=>
+      console.log(iterado);
+  );
+}

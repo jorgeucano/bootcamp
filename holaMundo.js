@@ -27,3 +27,22 @@ function getHola() {
 function getSomething(data) {
     console.log(data);
 }
+// ES5
+function iteradores(data) {
+    data.forEach(function (iterado) {
+        console.log(iterado);
+    });
+}
+// a lo typescript
+function iteradores_ts(data) {
+    data.forEach(function (iterado) {
+        return console.log(iterado);
+    });
+    ;
+}
+function iteradores_ts2(data) {
+    data.forEach(function (iterado) {
+        return console.log(iterado);
+    });
+    ;
+}
