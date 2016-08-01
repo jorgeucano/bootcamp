@@ -20,6 +20,9 @@ var something = 'now as string';
 function setHola(name) {
     this.hola = "Hola " + name;
 }
+function print_result() {
+    document.getElementById('result').innerHTML = getHola();
+}
 function getHola() {
     console.log(this.hola);
     return this.hola;

@@ -16,6 +16,10 @@ function setHola (name:string):void{
   this.hola = "Hola " + name;
 }
 
+function print_result():void{
+  document.getElementById('result').innerHTML = getHola();
+}
+
 function getHola ():string{
   console.log(this.hola);
   return this.hola;
