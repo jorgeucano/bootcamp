@@ -17,3 +17,9 @@
 <p>
   Super Hero Power: {{power | exponentialStrength: factor}}
 </p>
+
+<ul >
+  <li *ngFor="let developer of developers">
+    <span >{{developer.id}}</span> {{developer.name}}
+  </li>
+</ul>
