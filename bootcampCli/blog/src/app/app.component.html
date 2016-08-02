@@ -1,3 +1,19 @@
 <h1 hightlight>
   {{title}}
 </h1>
+<h2>
+ {{ today |  date:'fullDate' | uppercase }}
+</h2>
+<h2>
+ {{ today | date:format}}
+</h2>
+
+<button (click)="toggleFormat()">Toggle Format</button>
+
+
+<h2>Power Boost Calculator</h2>
+<div>Normal power: <input [(ngModel)]="power"></div>
+<div>Boost factor: <input [(ngModel)]="factor"></div>
+<p>
+  Super Hero Power: {{power | exponentialStrength: factor}}
+</p>
