@@ -11,3 +11,12 @@ tsc file.ts
 
 watcher:
 tsc -w file.ts
+
+
+----
+
+Hello Angular
+
+npm run typings install
+
+----
