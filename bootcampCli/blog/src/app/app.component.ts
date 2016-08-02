@@ -3,12 +3,13 @@ import { Hightlight } from './hightlight.directive';
 import { ExponentialStrengthPipe } from './exponential-strength.pipe';
 import { Developer } from './developer';
 import { DeveloperService } from './developer.service';
+import { DeveloperChildComponent } from './developer-child.component';
 @Component({
   moduleId: module.id,
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  directives: [Hightlight],
+  directives: [Hightlight, DeveloperChildComponent],
   pipes: [ExponentialStrengthPipe],
   providers: [DeveloperService]
 })
@@ -36,5 +37,6 @@ export class AppComponent {
     this.getDevelopers();
   }
 
+  master: string = 'Master';
 
 }

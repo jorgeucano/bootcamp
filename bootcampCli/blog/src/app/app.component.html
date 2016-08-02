@@ -1,15 +1,22 @@
 <h1 hightlight>
   {{title}}
 </h1>
+
+<hr>
+
 <h2>
  {{ today |  date:'fullDate' | uppercase }}
 </h2>
+
+<hr>
+
 <h2>
  {{ today | date:format}}
 </h2>
 
 <button (click)="toggleFormat()">Toggle Format</button>
 
+<hr>
 
 <h2>Power Boost Calculator</h2>
 <div>Normal power: <input [(ngModel)]="power"></div>
@@ -18,8 +25,14 @@
   Super Hero Power: {{power | exponentialStrength: factor}}
 </p>
 
+<hr>
+
 <ul >
   <li *ngFor="let developer of developers">
     <span >{{developer.id}}</span> {{developer.name}}
   </li>
 </ul>
+
+<hr>
+
+<developer-child [master]="master"> </developer-child>
