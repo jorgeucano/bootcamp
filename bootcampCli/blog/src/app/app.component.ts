@@ -15,28 +15,35 @@ import { DeveloperChildComponent } from './developer-child.component';
 })
 export class AppComponent {
   title = 'app works!';
+
+  // pipes
   today = new Date();
-
   toggle = true; // start with true == shortDate
-
   get format()   { return this.toggle ? 'shortDate' : 'fullDate'; }
   toggleFormat() { this.toggle = !this.toggle; }
-
   power = 5;
   factor = 1;
 
+
+  // services & mocks
   developers: Developer[];
-
   constructor(private developerService: DeveloperService) { }
-
   getDevelopers() {
     this.developers = this.developerService.getDevelopers();
   }
-
   ngOnInit() {
     this.getDevelopers();
   }
 
+  // input & output
   master: string = 'Master';
+
+
+  // ng-life
+  firstValue = false;
+  changeFirstValue() { this.firstValue = !this.firstValue; }
+  secondValue = 'A';
+  choice = 1;
+  nextChoice() { this.choice = this.choice + 1; }
 
 }

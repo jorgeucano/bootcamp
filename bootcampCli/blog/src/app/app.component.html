@@ -1,38 +1,87 @@
 <h1 hightlight>
   {{title}}
 </h1>
-
 <hr>
 
-<h2>
+<span>
  {{ today |  date:'fullDate' | uppercase }}
-</h2>
-
+</span>
 <hr>
 
-<h2>
+<span>
  {{ today | date:format}}
-</h2>
-
+</span>
 <button (click)="toggleFormat()">Toggle Format</button>
-
 <hr>
 
-<h2>Power Boost Calculator</h2>
+<span>Power Boost Calculator</span>
 <div>Normal power: <input [(ngModel)]="power"></div>
 <div>Boost factor: <input [(ngModel)]="factor"></div>
 <p>
   Super Hero Power: {{power | exponentialStrength: factor}}
 </p>
-
 <hr>
 
-<ul >
+<ul>
   <li *ngFor="let developer of developers">
     <span >{{developer.id}}</span> {{developer.name}}
   </li>
 </ul>
-
 <hr>
 
 <developer-child [master]="master"> </developer-child>
+<hr>
+
+<button (click)="changeFirstValue()">Change firstValue</button>
+<span *ngIf="firstValue">Hola Bootcamp</span> <br>
+<span *ngIf="power < factor">power es menor a factor</span> <br>
+
+<input [(ngModel)]="secondValue" />
+<div class="container">
+  <div *ngIf="secondValue == 'A'">A</div>
+  <div *ngIf="secondValue == 'B'">B</div>
+  <div *ngIf="secondValue != 'A' && secondValue != 'B'">C - Z</div>
+</div>
+
+<br>
+
+<div class="container" [ngSwitch]="secondValue">
+  <div *ngSwitchWhen="'A'">var is a</div>
+  <div *ngSwitchWhen="'B'">var is b</div>
+  <div *ngSwitchDefault>var is something else</div>
+</div>
+
+<br>
+
+<h4 class="ui horizontal divider header">
+  Current choice is {{ choice }}
+</h4>
+
+<div class="ui raised segment">
+ <ul [ngSwitch]="choice">
+   <li *ngSwitchWhen="1">First choice</li>
+   <li *ngSwitchWhen="2">Second choice</li>
+   <li *ngSwitchWhen="3">Third choice</li>
+   <li *ngSwitchWhen="4">Fourth choice</li>
+   <li *ngSwitchWhen="2">Second choice, again</li>
+   <li *ngSwitchDefault>Default choice</li>
+ </ul>
+</div>
+
+<div style="margin-top: 20px;">
+ <button class="ui primary button" (click)="nextChoice()">
+   Next choice
+ </button>
+</div>
+
+<hr>
+
+<div [style.background-color]="'yellow'">
+  background yellow
+</div>
+<br>
+<div [ngStyle]="{color:'white', 'background-color':'blue'}">
+  texto blanco, fondo azul
+</div>
+
+<hr>
