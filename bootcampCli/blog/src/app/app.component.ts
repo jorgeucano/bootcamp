@@ -4,6 +4,8 @@ import { ExponentialStrengthPipe } from './exponential-strength.pipe';
 import { Developer } from './developer';
 import { DeveloperService } from './developer.service';
 import { DeveloperChildComponent } from './developer-child.component';
+
+
 @Component({
   moduleId: module.id,
   selector: 'app-root',
@@ -45,5 +47,12 @@ export class AppComponent {
   secondValue = 'A';
   choice = 1;
   nextChoice() { this.choice = this.choice + 1; }
+
+
+  // forms
+  onSubmit(form: any): void {
+  console.log('valores del formulario:', form);
+  }
+
 
 }

@@ -85,3 +85,25 @@
 </div>
 
 <hr>
+
+<div class="ui raised segment">
+  <h2 class="ui header">Demo Form: Developer</h2>
+  <form #f="ngForm"
+    (ngSubmit)="onSubmit(f.value)"
+      class="ui form">
+      <div class="field">
+        <label for="developerInput">Developer Name</label>
+        <input type="text"
+            id="developerInput"
+            placeholder="Developer"
+            name="developer" ngModel>
+        <br>
+        <label for="developerSkillInput">Developer principal Skill</label>
+        <input type="text"
+            id="developerSkillInput"
+            placeholder="Developer principal Skill"
+            name="developerSkill" ngModel>
+      </div>
+      <button type="submit" class="ui button">Submit</button>
+    </form>
+</div>
