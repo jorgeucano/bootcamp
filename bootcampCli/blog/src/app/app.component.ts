@@ -4,14 +4,14 @@ import { ExponentialStrengthPipe } from './exponential-strength.pipe';
 import { Developer } from './developer';
 import { DeveloperService } from './developer.service';
 import { DeveloperChildComponent } from './developer-child.component';
-
+import { SimpleHttpComponent } from './simple-http.component';
 
 @Component({
   moduleId: module.id,
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  directives: [Hightlight, DeveloperChildComponent],
+  directives: [Hightlight, DeveloperChildComponent, SimpleHttpComponent],
   pipes: [ExponentialStrengthPipe],
   providers: [DeveloperService]
 })
@@ -53,6 +53,7 @@ export class AppComponent {
   onSubmit(form: any): void {
   console.log('valores del formulario:', form);
   }
+
 
 
 }
