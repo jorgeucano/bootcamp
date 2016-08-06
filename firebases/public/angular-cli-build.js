@@ -16,8 +16,10 @@ module.exports = function(defaults) {
       'reflect-metadata/**/*.+(ts|js|js.map)',
       'rxjs/**/*.+(js|js.map)',
       '@angular/**/*.+(js|js.map)',
-
-
+      /* firebase begin */
+      'angularfire2/**/*.js',
+      'firebase/*.js',
+      /* firebase end */
       /* ngrx/router begin */
       '@ngrx/**/*.+(js|js.map)',
       'path-to-regexp/*.+(js|js.map)',
@@ -26,7 +28,7 @@ module.exports = function(defaults) {
       'strict-uri-encode/*.+(js|js.map)',
       'object-assign/*.+(js|js.map)'
       /* ngrx/router end */
-      
+
     ]
   });
 };
