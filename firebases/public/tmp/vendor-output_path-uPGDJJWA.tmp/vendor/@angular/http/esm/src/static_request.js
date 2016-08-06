@@ -1,0 +1,1 @@
+/Users/jorgeucano/Documents/examples/bootcamp/firebases/public/tmp/vendor-input_base_path-cVCmSbOE.tmp/0/@angular/http/esm/src/static_request.js

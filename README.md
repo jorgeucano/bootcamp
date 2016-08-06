@@ -20,3 +20,14 @@ Hello Angular
 npm run typings install
 
 ----
+
+// firebases
+firebase init
+ng new blogWithFirebase
+unzip
+
+----
+
+ngrouter
+
+npm install @ngrx/router @ngrx/core --save
