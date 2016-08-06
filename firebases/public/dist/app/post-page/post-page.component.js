@@ -14,13 +14,26 @@ var router_1 = require('@ngrx/router');
 require('rxjs/add/operator/pluck');
 var PostPageComponent = (function () {
     function PostPageComponent(af, routeParams$) {
-        this.id$ = routeParams$.pluck('id');
+        var _this = this;
         this.afi = af;
-        this.posts = this.afi.database.list('/POSTS', {
-            query: {
-                orderByChild: 'id',
-                equalTo: 1
-            }
+        this.id$ = routeParams$.pluck('id');
+        /*this.posts = this.afi.database.list('/POSTS', {
+          query: {
+            orderByChild: 'id',
+            equalTo: 1
+          }
+        });*/
+        this.post$ = routeParams$.pluck('id')
+            .distinctUntilChanged()
+            .mergeMap(function (id) {
+            // Mark that we are loading a new post:
+            _this.posts = _this.afi.database.list('/POSTS', {
+                query: {
+                    orderByChild: 'id',
+                    equalTo: parseInt(id)
+                }
+            });
+            return "";
         });
     }
     PostPageComponent.prototype.ngOnInit = function () {
