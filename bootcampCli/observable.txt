@@ -1,0 +1,77 @@
+// Como entender rapidamente un observable
+
+//sin observable
+
+var a = 5;
+var b = 10;
+var c = a + b;
+
+a = 10;
+
+c == 20 // FALSE
+
+// con observable
+
+var a = 5;
+var b = 10;
+var c = a + b;
+
+a = 10 ;
+
+c == 20 // TRUE
+
+
+
+// create observable
+
+var observable = Rx.Observable.create(function(observer){
+  observer.next(1);
+  observer.next(2);
+  observer.next(3);
+  setTimeout(() => {
+    observer.next(4);
+    observer.complete();
+  }, 1000);
+});
+
+
+// subscribe observable
+
+observable.subscribe(
+  (x) => console.log('value' + x),
+  (err) => console.error('algo malo paso' + err),
+  ()=> console.log('done')
+);
+
+// que observables podemos crear
+
+=> array
+=> array-like object (ej DOM elements)
+=> Event
+=> Iterables objects
+=> observable-like
+=> Promise
+
+
+// observable vs promise
+
+Observables:
+  - se pueden cancelar
+  - no se ejecutan sin observador
+  - tienen operadores
+
+
+Cold Observable
+
+const source = new Observable ((observer)=>{
+  const socket = new WebSocket ('ws://someURL');
+  socket.addEventListener('message', (e)=> observer.next(e));
+  return() => socket.close();
+});
+
+Hot Observable
+
+cont socket = new WebSocket('ws://someURL');
+const source = new Observable((observer)=>{
+  socket.addEventListener('message', (e) => observer.next(e));
+});
