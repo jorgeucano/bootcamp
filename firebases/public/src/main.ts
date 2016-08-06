@@ -22,6 +22,10 @@ const routes: Routes = [
         component: PostPageComponent
       }
     ]
+  },
+  {
+    path: '/posts/:id',
+    component: PostPageComponent
   }
 ]
 
