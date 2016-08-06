@@ -9,8 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var angularfire2_1 = require('angularfire2');
+var router_1 = require('@ngrx/router');
+require('rxjs/add/operator/pluck');
 var PostPageComponent = (function () {
-    function PostPageComponent() {
+    function PostPageComponent(af, routeParams$) {
+        this.id$ = routeParams$.pluck('id');
     }
     PostPageComponent.prototype.ngOnInit = function () {
     };
@@ -21,7 +25,7 @@ var PostPageComponent = (function () {
             templateUrl: 'post-page.component.html',
             styleUrls: ['post-page.component.css']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [angularfire2_1.AngularFire, router_1.RouteParams])
     ], PostPageComponent);
     return PostPageComponent;
 }());

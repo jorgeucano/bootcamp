@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { Observable } from 'rxjs/Observable';
+
+import { RouteParams } from '@ngrx/router';
+import 'rxjs/add/operator/pluck';
+
 @Component({
   moduleId: module.id,
   selector: 'app-post-page',
@@ -8,7 +14,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostPageComponent implements OnInit {
 
-  constructor() {}
+  afi : any;
+  id$: Observable<string>;
+
+
+
+  posts: FirebaseListObservable<any[]>;
+  constructor(af: AngularFire, routeParams$: RouteParams) {
+    this.id$ = routeParams$.pluck<string>('id');
+  }
 
   ngOnInit() {
   }
