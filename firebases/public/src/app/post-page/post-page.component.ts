@@ -16,12 +16,16 @@ export class PostPageComponent implements OnInit {
 
   afi : any;
   id$: Observable<string>;
-
-
-
   posts: FirebaseListObservable<any[]>;
   constructor(af: AngularFire, routeParams$: RouteParams) {
     this.id$ = routeParams$.pluck<string>('id');
+    this.afi = af;
+    this.posts = this.afi.database.list('/POSTS', {
+      query: {
+        orderByChild: 'id',
+        equalTo: 1
+      }
+    });
   }
 
   ngOnInit() {

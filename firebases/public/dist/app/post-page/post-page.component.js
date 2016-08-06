@@ -15,6 +15,13 @@ require('rxjs/add/operator/pluck');
 var PostPageComponent = (function () {
     function PostPageComponent(af, routeParams$) {
         this.id$ = routeParams$.pluck('id');
+        this.afi = af;
+        this.posts = this.afi.database.list('/POSTS', {
+            query: {
+                orderByChild: 'id',
+                equalTo: 1
+            }
+        });
     }
     PostPageComponent.prototype.ngOnInit = function () {
     };
