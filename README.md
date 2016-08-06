@@ -40,3 +40,19 @@ angularfire2 (https://github.com/angular/angularfire2)
 npm install angularfire2 firebase --save
 
 typings install file:node_modules/angularfire2/firebase3.d.ts --save --global && typings install
+
+"angular-cli-build"
+'angularfire2/**/*.js',
+'firebase/*.js',
+
+ng build
+
+
+----
+// add
+  const itemObservable = this.afi.database.list('/POSTS');
+  itemObservable.push({ json });
+  
+// remove
+  const items = this.afi.database.list('/POSTS');
+  items.remove(itemKey);

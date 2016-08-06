@@ -42,6 +42,10 @@ var cliSystemConfigPackages = {};
 barrels.forEach(function (barrelName) {
     cliSystemConfigPackages[barrelName] = { main: 'index' };
 });
+// add firebase
+cliSystemConfigPackages['angularfire2'] = {
+    main: 'angularfire2.js'
+};
 // add NGRx
 cliSystemConfigPackages['@ngrx/store'] = {
     main: 'index'
@@ -52,6 +56,10 @@ System.config({
         '@angular': 'vendor/@angular',
         'rxjs': 'vendor/rxjs',
         'main': 'main.js',
+        /* firebase begin*/
+        'firebase': 'vendor/firebase/firebase.js',
+        'angularfire2': 'vendor/angularfire2',
+        /* firebase end */
         /* ngrx/router begin */
         '@ngrx': 'vendor/@ngrx',
         'path-to-regexp': 'vendor/path-to-regexp',

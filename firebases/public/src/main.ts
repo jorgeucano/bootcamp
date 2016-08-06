@@ -3,6 +3,10 @@ import { enableProdMode } from '@angular/core';
 import { AppComponent, environment } from './app/';
 import { provideRouter } from '@ngrx/router';
 
+/* FIREBASE */
+import { FIREBASE_PROVIDERS, defaultFirebase } from 'angularfire2';
+
+/* NGRX Router */
 import { Routes } from '@ngrx/router';
 import { HomePageComponent } from './app/home-page/home-page.component';
 import { BlogPageComponent } from './app/blog-page/blog-page.component';
@@ -29,6 +33,8 @@ const routes: Routes = [
   }
 ]
 
+
+
 if (environment.production) {
   enableProdMode();
 }
@@ -36,6 +42,13 @@ if (environment.production) {
 bootstrap(
   AppComponent,
   [
-      provideRouter(routes)
+      provideRouter(routes),
+      FIREBASE_PROVIDERS,
+      defaultFirebase({
+        apiKey: "AIzaSyBsrJ7QRvOazuKS6WoSzEe0CgKIhPcz81M",
+        authDomain: "bootfire-b40fc.firebaseapp.com",
+        databaseURL: "https://bootfire-b40fc.firebaseio.com",
+        storageBucket: "bootfire-b40fc.appspot.com",
+      })
   ]
 );
